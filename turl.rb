@@ -88,7 +88,7 @@ class MainController < Ramaze::Controller
   
   layout :_page
 
-  def index turl=nil
+  def index turl=nil, *params #Prevent 'wrong number of arguments' error when more then one parameter
     if turl
       url = TinyURL.unpack(turl)
       redirect(url ? url : Rs())
@@ -134,7 +134,7 @@ class MainController < Ramaze::Controller
   end
 end
 
-Ramaze::Log.loggers = [ Ramaze::Logging::Logger::Informer.new( File.join(__DIR__, 'turl.log'),[:error])]
+Ramaze::Log.loggers = [ Ramaze::Logging::Logger::Informer.new( File.join(__DIR__, 'turl.log'))]
 
 if __FILE__ == $0
   Ramaze.start :adapter => :webrick, :port => 7000
