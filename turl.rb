@@ -8,7 +8,7 @@ require 'ramaze'
 DB_FILE = __DIR__/'turl.db'
 DB = Sequel.connect("sqlite://#{DB_FILE}")
 
-BASE_URL = 'http://localhost:7000/'.freeze
+BASE_URL = 'http://linuxstamp.dovadi.com/'.freeze
 
 #
 #  Model
