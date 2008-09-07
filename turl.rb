@@ -134,6 +134,8 @@ class MainController < Ramaze::Controller
   end
 end
 
+Ramaze::Log.loggers = [ Ramaze::Logging::Logger::Informer.new( File.join(__DIR__, 'turl.log'),[:error])]
+
 if __FILE__ == $0
-  Ramaze.start :adapter => :thin, :port => 7000
+  Ramaze.start :adapter => :webrick, :port => 7000
 end
